@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Sunny Hansen — send a message via the contact form." />
+  <title>Contact | Sunny Hansen</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav aria-label="Main navigation">
+    <a class="logo" href="index.html">Sunny Hansen</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Main content ===== -->
+  <main class="page">
+
+    <h1>Contact Me</h1>
+    <p>
+      Have a question, want to collaborate, or just want to say hello?
+      Fill in the form below and I'll get back to you as soon as I can.
+    </p>
+
+    <!-- ===== Contact form ===== -->
+    <!--
+      action="#" keeps the form on this page (no server needed for this assignment).
+      In a real project, action would point to a server endpoint or service like Formspree.
+    -->
+    <form action="#" method="post" novalidate aria-label="Contact form">
+
+      <div class="form-group">
+        <label for="name">Your name <span aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Jane Smith"
+          required
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address <span aria-hidden="true">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="jane@example.com"
+          required
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option value="">— Select a topic —</option>
+          <option value="university">University / study related</option>
+          <option value="project">Project or collaboration</option>
+          <option value="feedback">Feedback on my site</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message <span aria-hidden="true">*</span></label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Tell me what's on your mind…"
+          required
+          maxlength="300"
+        ></textarea>
+        <!--
+          Character counter updated live by updateCounter() in main.js
+          role="status" announces changes to screen readers
+        -->
+        <small id="char-count" role="status" aria-live="polite" style="color:#9898b8;">0 / 300 characters</small>
+      </div>
+
+      <!--
+        onclick calls submitForm() below — provides visual feedback
+        because the form has no real back-end in this demo
+      -->
+      <button type="button" class="btn-submit" onclick="submitForm()">
+        Send message
+      </button>
+
+    </form>
+
+    <!-- Confirmation message shown after "sending" -->
+    <div id="js-message" role="status" aria-live="polite">
+      Thanks for your message! I'll get back to you soon.
+    </div>
+
+    <h2>Other ways to reach me</h2>
+    <p>Email: <a href="mailto:sunny.hansen@student.swinburne.edu.au">sunny.hansen@student.swinburne.edu.au</a></p>
+    <p>University: <a href="https://www.swinburne.edu.au" target="_blank" rel="noopener noreferrer">Swinburne University of Technology</a></p>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 Sunny Hansen &mdash; All rights reserved</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /*
+      submitForm() — validates that name and email are filled,
+      then shows a thank-you message instead of a real server call.
+      In a live project, you would POST the form data to a server here.
+    */
+    function submitForm() {
+      const name  = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const box   = document.getElementById("js-message");
+
+      // Basic validation: check required fields are not empty
+      if (!name || !email) {
+        alert("Please fill in your name and email address before sending.");
+        return; // Stop here if validation fails
+      }
+
+      // Show the confirmation message
+      box.style.display = "block";
+
+      // Scroll smoothly so the user sees the confirmation
+      box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  </script>
+
+</body>
+</html>
