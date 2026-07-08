@@ -1,10 +1,18 @@
-
+/* ==========================================================
+   Global Reset
+   Removes default browser spacing and ensures all elements
+   use border-box sizing for easier layout management.
+========================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ==========================================================
+   CSS Variables
+   Stores colours, fonts and reusable values in one place.
+========================================================== */
 :root {
   --ink:       #1a1a2e;
   --mid:       #4a4a6a;
@@ -20,8 +28,13 @@
   --font-body:    'Segoe UI', system-ui, sans-serif;
 }
 
+/* Enables smooth scrolling when navigating to page sections */
 html { scroll-behavior: smooth; }
 
+/* ==========================================================
+   Body Styling
+   Sets the site's default font, colours and page layout.
+========================================================== */
 body {
   font-family: var(--font-body);
   background: var(--bg);
@@ -33,7 +46,10 @@ body {
   flex-direction: column;
 }
 
-/* --- Navigation --- */
+/* ==========================================================
+   Navigation Bar
+   Creates the sticky navigation menu at the top of the page.
+========================================================== */
 nav {
   background: var(--ink);
   padding: 0 2rem;
@@ -46,6 +62,7 @@ nav {
   z-index: 100;
 }
 
+/* Website logo styling */
 nav .logo {
   font-family: var(--font-display);
   color: #fff;
@@ -54,12 +71,14 @@ nav .logo {
   text-decoration: none;
 }
 
+/* Navigation menu layout */
 nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
 
+/* Navigation links */
 nav ul a {
   color: #aaaac8;
   text-decoration: none;
@@ -69,12 +88,16 @@ nav ul a {
   transition: color 0.2s;
 }
 
+/* Highlight navigation links when hovered or active */
 nav ul a:hover,
 nav ul a.active {
   color: #fff;
 }
 
-/* --- Hero (Home only) --- */
+/* ==========================================================
+   Hero Section
+   Main banner shown on the home page.
+========================================================== */
 .hero {
   background: linear-gradient(135deg, var(--ink) 0%, #2e2e5e 100%);
   color: #fff;
@@ -82,6 +105,7 @@ nav ul a.active {
   text-align: center;
 }
 
+/* Main heading inside hero */
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.4rem);
@@ -90,6 +114,7 @@ nav ul a.active {
   margin-bottom: 1rem;
 }
 
+/* Introductory text */
 .hero p {
   color: #b0b0d8;
   font-size: 1.1rem;
@@ -97,6 +122,7 @@ nav ul a.active {
   margin: 0 auto 2rem;
 }
 
+/* Main call-to-action button */
 .btn {
   display: inline-block;
   background: var(--accent2);
@@ -108,9 +134,16 @@ nav ul a.active {
   transition: opacity 0.2s, transform 0.15s;
 }
 
-.btn:hover { opacity: 0.88; transform: translateY(-2px); }
+/* Button hover effect */
+.btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
 
-
+/* ==========================================================
+   Main Page Container
+   Controls the width and spacing of page content.
+========================================================== */
 .page {
   max-width: 860px;
   margin: 3rem auto;
@@ -118,20 +151,43 @@ nav ul a.active {
   flex: 1;
 }
 
-
+/* ==========================================================
+   Typography
+   Styles headings and paragraphs.
+========================================================== */
 h1, h2, h3 {
   font-family: var(--font-display);
   color: var(--ink);
   font-weight: normal;
 }
 
-h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; border-bottom: 2px solid var(--border); padding-bottom: 0.35rem; }
-h3 { font-size: 1.15rem; margin: 1.5rem 0 0.4rem; }
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
 
-p { margin-bottom: 1rem; color: var(--mid); }
+h2 {
+  font-size: 1.5rem;
+  margin: 2rem 0 0.75rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.35rem;
+}
 
-/* --- Cards (About page) --- */
+h3 {
+  font-size: 1.15rem;
+  margin: 1.5rem 0 0.4rem;
+}
+
+/* Paragraph text */
+p {
+  margin-bottom: 1rem;
+  color: var(--mid);
+}
+
+/* ==========================================================
+   Cards
+   Used on the About page to display information.
+========================================================== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -139,6 +195,7 @@ p { margin-bottom: 1rem; color: var(--mid); }
   margin: 1.5rem 0;
 }
 
+/* Individual information card */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -146,11 +203,22 @@ p { margin-bottom: 1rem; color: var(--mid); }
   padding: 1.4rem;
 }
 
-.card h3 { margin-top: 0; color: var(--accent); }
+/* Card heading */
+.card h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
 
-/* --- Table (Skills page) --- */
-.table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+/* ==========================================================
+   Skills Table
+   Styles the table on the Skills page.
+========================================================== */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
 
+/* Table styling */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -160,12 +228,34 @@ table {
   font-size: 0.95rem;
 }
 
-thead { background: var(--ink); color: #fff; }
-th, td { padding: 0.85rem 1.1rem; text-align: left; }
-tbody tr { border-bottom: 1px solid var(--border); }
-tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background: #f0f0fa; }
+/* Table header */
+thead {
+  background: var(--ink);
+  color: #fff;
+}
 
+/* Table cells */
+th,
+td {
+  padding: 0.85rem 1.1rem;
+  text-align: left;
+}
+
+/* Row styling */
+tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Highlight row on hover */
+tbody tr:hover {
+  background: #f0f0fa;
+}
+
+/* Skill tags */
 .tag {
   display: inline-block;
   background: #e8eaf6;
@@ -176,11 +266,15 @@ tbody tr:hover { background: #f0f0fa; }
   margin: 0.1rem;
 }
 
-/* --- Contact form --- */
+/* ==========================================================
+   Contact Form
+   Styles labels, inputs and submit button.
+========================================================== */
 .form-group {
   margin-bottom: 1.2rem;
 }
 
+/* Form labels */
 label {
   display: block;
   font-size: 0.88rem;
@@ -190,7 +284,10 @@ label {
   margin-bottom: 0.35rem;
 }
 
-input, textarea, select {
+/* Text fields, dropdowns and text area */
+input,
+textarea,
+select {
   width: 100%;
   padding: 0.7rem 1rem;
   border: 1px solid var(--border);
@@ -202,13 +299,21 @@ input, textarea, select {
   transition: border-color 0.2s;
 }
 
-input:focus, textarea:focus, select:focus {
+/* Highlight input when selected */
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--accent);
 }
 
-textarea { resize: vertical; min-height: 120px; }
+/* Allow only vertical resizing */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
 
+/* Submit button */
 .btn-submit {
   background: var(--accent);
   color: #fff;
@@ -220,9 +325,16 @@ textarea { resize: vertical; min-height: 120px; }
   transition: opacity 0.2s, transform 0.15s;
 }
 
-.btn-submit:hover { opacity: 0.88; transform: translateY(-2px); }
+/* Submit button hover effect */
+.btn-submit:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
 
-
+/* ==========================================================
+   JavaScript Message Box
+   Hidden by default and shown using JavaScript.
+========================================================== */
 #js-message {
   display: none;
   margin-top: 1rem;
@@ -234,7 +346,10 @@ textarea { resize: vertical; min-height: 120px; }
   font-size: 0.97rem;
 }
 
-
+/* ==========================================================
+   Website Image
+   Controls the appearance of images used on the site.
+========================================================== */
 .site-image {
   width: 100%;
   max-height: 340px;
@@ -244,7 +359,10 @@ textarea { resize: vertical; min-height: 120px; }
   display: block;
 }
 
-
+/* ==========================================================
+   Footer
+   Displays copyright information at the bottom.
+========================================================== */
 footer {
   background: var(--ink);
   color: #6666aa;
@@ -254,15 +372,37 @@ footer {
   margin-top: auto;
 }
 
-/* --- Accessibility: focus visible --- */
-a:focus-visible, button:focus-visible {
+/* ==========================================================
+   Accessibility
+   Makes keyboard focus easier to see.
+========================================================== */
+a:focus-visible,
+button:focus-visible {
   outline: 3px solid var(--accent2);
   outline-offset: 3px;
 }
 
-/* --- Responsive --- */
+/* ==========================================================
+   Responsive Design
+   Adjusts the layout for screens smaller than 600px.
+========================================================== */
 @media (max-width: 600px) {
-  nav { flex-direction: column; height: auto; padding: 1rem; gap: 0.5rem; }
-  .hero { padding: 3rem 1.2rem; }
-  .page { margin: 1.5rem auto; }
+
+  /* Stack navigation items vertically */
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  /* Reduce hero section spacing */
+  .hero {
+    padding: 3rem 1.2rem;
+  }
+
+  /* Reduce page margins */
+  .page {
+    margin: 1.5rem auto;
+  }
 }
