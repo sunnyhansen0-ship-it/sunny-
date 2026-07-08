@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic page information and metadata -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Sunny Hansen — Cyber Security student at Swinburne University." />
+
+  <!-- Page title shown in the browser tab -->
   <title>Sunny Hansen | Portfolio</title>
+
+  <!-- External CSS stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
- 
+  <!-- ===================== Navigation Bar ===================== -->
+  <!-- Contains the site logo and links to all pages -->
   <nav aria-label="Main navigation">
     <a class="logo" href="index.html">Sunny Hansen</a>
     <ul>
@@ -20,16 +26,19 @@
     </ul>
   </nav>
 
-  
+  <!-- ===================== Hero Section ===================== -->
+  <!-- Introduces the website owner with a heading, short description and button -->
   <header class="hero">
     <h1>Hello, I'm Sunny Hansen</h1>
     <p>A Cyber Security student at Swinburne University, passionate about protecting systems and understanding how the digital world works.</p>
     <a class="btn" href="about.html">Learn more about me</a>
   </header>
 
- 
+  <!-- ===================== Main Page Content ===================== -->
+  <!-- Contains all the main information displayed on the homepage -->
   <main class="page">
 
+    <!-- Welcome section -->
     <h2>Welcome to my portfolio</h2>
     <p>
       This site is a snapshot of who I am, what I'm studying, and where I'm headed.
@@ -37,13 +46,14 @@
       and building my skills one project at a time.
     </p>
 
-  
+    <!-- Image representing a study workspace -->
     <img
       class="site-image"
       src="images/workspace.svg"
       alt="A tidy desk with a laptop, notepad, and a plant — representing a student's study workspace"
     />
 
+    <!-- Career goals section -->
     <h2>What I'm working towards</h2>
     <p>
       My goal is to major in Cyber Security — learning how to defend networks, identify
@@ -51,31 +61,35 @@
       and the growing field of cloud security.
     </p>
 
-    
+    <!-- ===================== JavaScript Demo ===================== -->
+    <!-- Demonstrates a simple JavaScript interaction -->
     <h2>Quick demo — JavaScript feature</h2>
     <p>Click the button below to see a simple JavaScript interaction in action.</p>
 
-    
+    <!-- Button that calls the toggleMessage() function in main.js -->
     <button class="btn-submit" onclick="toggleMessage()">
       Show / Hide message
     </button>
 
-   
+    <!-- Message that is shown or hidden using JavaScript -->
     <div id="js-message" role="status" aria-live="polite">
       JavaScript is working correctly on this page.
       This message was shown by toggling the display property.
     </div>
 
+    <!-- Contact section -->
     <h2>Want to connect?</h2>
     <p>Head over to the <a href="contact.html">Contact page</a> to send me a message directly.</p>
 
   </main>
 
-  
+  <!-- ===================== Footer ===================== -->
+  <!-- Displays copyright information -->
   <footer>
     <p>&copy; 2025 Sunny Hansen &mdash; All rights reserved</p>
   </footer>
 
+  <!-- External JavaScript file -->
   <script src="main.js"></script>
 </body>
 </html>
